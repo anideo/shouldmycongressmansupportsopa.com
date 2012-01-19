@@ -4,7 +4,7 @@
 }
 
 #main {
-  margin: 0 auto;
+  margin: 1em auto;
   text-align: center;
 }
 
@@ -16,11 +16,11 @@
 }
 
 #main .video {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #main .footer {
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 11px;
 }
 
