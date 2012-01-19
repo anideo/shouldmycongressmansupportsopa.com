@@ -1,0 +1,31 @@
+#main {
+  padding-top: 40px;
+  min-height: 640px;
+}
+
+#main {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#main h1 {
+  font-family: 'Vast Shadow', cursive;
+  font-weight: normal;
+  font-size: 34px;
+  padding-bottom: 20px;
+}
+
+#main .video {
+  margin-bottom: 20px;
+}
+
+#main .footer {
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+#main .say {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+}
