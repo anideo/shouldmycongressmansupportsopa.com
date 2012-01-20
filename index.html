@@ -9,7 +9,9 @@
    <link href='http://fonts.googleapis.com/css?family=Vast+Shadow' rel='stylesheet' type='text/css'>
    <link href="/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
    <link href="/css/globals.css" media="screen" rel="stylesheet" type="text/css" />
-   <link href="/css/default.css" media="screen" rel="stylesheet" type="text/css" />
+
+   <script type='text/javascript' src='/javascripts/jquery.min.js'></script>
+   <script type='text/javascript' src='/javascripts/jwplayer.js'></script>
 </head>
 <body>
 
@@ -18,12 +20,16 @@
     <div class="row">
       <div class="span16" id="main">
         <h1>Should My Congressman Support SOPA?</h1>
-        <div class="video">
-          <iframe width="560" height="315" src="http://www.youtube.com/embed/Eal4fep7pK4" frameborder="0" allowfullscreen></iframe>
+
+        <p style="padding-bottom: 20px; font-size: 18px;">
+          Say No to SOPA, sign the <a href="https://www.google.com/landing/takeaction/" target="_blank">Google Petition!</a>
+        </p>
+        <div id="video-container">
+          <div id="video"></div>
         </div>
-        <a href="#" class="btn large primary say">What does Hollywood Say?</a>
+        <a href="#" class="btn large primary say">Want another opinion?</a>
         <div class="footer">
-          Brought to you by the guys at <a href="http://getdenso.com">Denso</a> (mashing up the creative works of <a href="http://supercut.org/video/118">supercut.org</a>)
+          Brought to you by the guys at <a href="http://getdenso.com" target="_blank">Denso</a> (many thanks to the creative genius of <a href="http://www.youtube.com/user/iiAFX" target="_blank">iiAFX on Youtube</a>)
         </div>
       </div>
     </div>
@@ -31,6 +37,196 @@
 </div>
 
 <script type="text/javascript">
+  $(document).ready(function() {
+    window.currentNooooo = null;
+    window.currentStartingNooooo = null;
+    window.currentEndingNooooo = null;
+
+    window.premier_nooooos = [[507, 508.4], [537, 558.5], [623, 629.5], [638, 643.5], [652, 659.6], [662, 668.8], [670, 690], [691, 695], [263, 272], [296, 299.2], [300, 301.2], [302, 307.8], [339, 349.4], [386, 389], [441, 450.5], [454, 459]];
+
+    window.nooooos = [
+      [10, 13],
+      [23.5, 26.5],
+      [31, 33],
+      [34, 35.3],
+      [36, 37.1],
+      [38, 38.7],
+      [39, 42.4],
+      [44, 45],
+      [46, 46.8],
+      [49, 50.7],
+      [51, 54.5],
+      [55, 57.5],
+      [58, 59.91],
+      [61, 63.5],
+      [64, 68.9],
+      [70, 73.9],
+      [74, 78],
+      [79, 82],
+      [83, 85.4],
+      [86, 87.4],
+      [88, 91.2],
+      [92, 97.5],
+      [110, 115],
+      [121, 126.7],
+      [128, 130.9],
+      [131, 135.7],
+      [136, 142.9],
+      [144, 146.5],
+      [147, 160.5],
+      [161, 164.4],
+      [165, 167],
+      [168, 169.6],
+      [170, 172.1],
+      [173, 177.9],
+      [179, 181.1],
+      [182, 183],
+      [184, 185.4],
+      [186, 188],
+      [190, 192.8],
+      [194, 201.5],
+      [202, 217],
+      [218, 219.2],
+      [220, 224],
+      [226, 227.4],
+      [228, 230.7],
+      [231, 234],
+      [235, 239],
+      [240, 241.5],
+      [242, 244.1],
+      [245, 245.5],
+      [246, 247.4],
+      [250, 250.8],
+      [252, 255.2],
+      [258, 259.2],
+      [260, 262.5],
+      [263, 272],
+      [273, 278.5],
+      [279, 280.8],
+      [282, 283.9],
+      [286, 288],
+      [289, 290],
+      [291, 292.2],
+      [293, 295.5],
+      [296, 299.2],
+      [300, 301.2],
+      [302, 307.8],
+      [308, 310.8],
+      [312, 315.8],
+      [321, 323.1],
+      [328, 328.9],
+      [332, 333.6],
+      [334, 336.9],
+      [339, 349.4],
+      [350, 352.6],
+      [353, 355.5],
+      [356, 362],
+      [363, 365.6],
+      [366, 368.7],
+      [369, 372],
+      [373, 376],
+      [377, 380.5],
+      [381, 385],
+      [386, 389],
+      [390, 391],
+      [392, 396.5],
+      [397, 398],
+      [401, 402.5],
+      [403, 408.6],
+      [409, 413],
+      [414, 416],
+      [418, 420.5],
+      [421, 422.4],
+      [423, 425.8],
+      [428, 429.5],
+      [430, 435.5],
+      [436, 440.5],
+      [441, 450.5],
+      [454, 459],
+      [460, 460.5],
+      [461, 463],
+      [469, 470.8],
+      [472, 476],
+      [490, 491.2],
+      [494, 496.9],
+      [498, 501.5],
+      [503, 503.4],
+      [504, 505],
+      [507, 508.4],
+      [509, 510.3],
+      [511, 514.5],
+      [515, 528.2],
+      [537, 558.5],
+      [566, 569],
+      [570, 572.2],
+      [573, 580.3],
+      [589, 591],
+      [592, 595.5],
+      [597, 597.5],
+      [600,601],
+      [603, 606.5],
+      [607, 608],
+      [609, 610],
+      [611, 611.5],
+      [612, 614.7],
+      [616, 617.8],
+      [623, 629.5],
+      [636, 637.6],
+      [638, 643.5],
+      [648, 649.3],
+      [650, 651.8],
+      [652, 659.6],
+      [662, 668.8],
+      [670, 690],
+      [691, 695]
+    ];
+
+    jwplayer('video').setup({
+      'backcolor': 'bbbbbb',
+      'width': '100%',
+      'height': '100%',
+      'file' : 'www.youtube.com/watch?v=Eal4fep7pK4',
+      'controlbar' : 'none',
+      'icons' : false,
+      'modes': [
+        { type: 'flash', src: '/assets/player.swf', provider: 'video' },
+        { type: 'html5' }
+      ]
+    });
+
+    function setCurrentNooooo(_nooooos) {
+      var random = Math.floor(Math.random()*(_nooooos.length))
+      window.currentNooooo = _nooooos[random];
+      window.currentStartingNooooo = _nooooos[random][0];
+      window.currentEndingNooooo = _nooooos[random][1];
+    }
+
+    function playRandomNooooo(_nooooos) {
+      jwplayer().setMute(false);
+      setCurrentNooooo(_nooooos);
+      jwplayer().play();
+      jwplayer().seek(window.currentStartingNooooo);
+    }
+
+    jwplayer().onReady(function() { playRandomNooooo(window.premier_nooooos) });
+
+    jwplayer().onTime(function(e) {
+      if(e.position >= window.currentEndingNooooo) {
+        jwplayer().pause();
+        $('.say').fadeIn();
+        $('.footer').fadeIn();
+      }
+    });
+
+    $('.say').click(function() {
+      playRandomNooooo(window.nooooos);
+
+      $('.say').fadeOut();
+      $('.footer').fadeOut();
+    });
+
+  });
+</script>
 
 <script type="text/javascript">
 

@@ -1,3 +1,9 @@
+body {
+  background: #322920;
+  background-image: url("/images/image-1.jpg"), url("/images/image-2.jpg");
+  background-repeat: repeat-x, repeat;
+}
+
 #main {
   padding-top: 40px;
   min-height: 640px;
@@ -6,6 +12,7 @@
 #main {
   margin: 1em auto;
   text-align: center;
+  color: #bbb;
 }
 
 #main h1 {
@@ -13,19 +20,25 @@
   font-weight: normal;
   font-size: 34px;
   padding-bottom: 20px;
-}
-
-#main .video {
-  margin-bottom: 40px;
+  color: #bbb;
 }
 
 #main .footer {
   margin-top: 40px;
-  font-size: 11px;
+  font-size: 12px;
+  display: none;
 }
 
 #main .say {
   display: block;
   margin: 0 auto;
   width: 40%;
+  display: none;
+}
+
+#main #video-container {
+  width: 640px;
+  height: 480px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
