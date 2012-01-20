@@ -37,6 +37,11 @@ body {
   text-shadow: 1px 1px 1px #fcfcfc;
 }
 
+#main .addthis_toolbox {
+  width: 640px;
+  height: 40px;
+}
+
 #main #button-container {
   display: block;
   clear: both;
@@ -53,5 +58,5 @@ body {
   width: 640px;
   height: 480px;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
