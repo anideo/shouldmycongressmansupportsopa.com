@@ -1,32 +1,42 @@
 body {
-  background: #322920;
-  background-image: url("/images/image-1.jpg"), url("/images/image-2.jpg");
-  background-repeat: repeat-x, repeat;
+  background-color: #eee;
 }
 
 #main {
-  padding-top: 40px;
   min-height: 640px;
-}
-
-#main {
   margin: 1em auto;
+  width: 640px;
   text-align: center;
   color: #bbb;
 }
 
 #main h1 {
-  font-family: 'Vast Shadow', cursive;
+  font-family: 'Antic', sans-serif;
   font-weight: normal;
-  font-size: 34px;
+  font-size: 30px;
+  color: #333;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #fcfcfc;
+}
+
+#main .petition {
   padding-bottom: 20px;
-  color: #bbb;
+  font-size: 16px;
+  color: #333;
+  text-shadow: 1px 1px 1px #fcfcfc;
 }
 
 #main .footer {
   margin-top: 40px;
   font-size: 12px;
   display: none;
+  color: #333;
+  text-shadow: 1px 1px 1px #fcfcfc;
+}
+
+#main #button-container {
+  display: block;
+  clear: both;
 }
 
 #main .say {

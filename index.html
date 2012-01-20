@@ -6,7 +6,7 @@
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title>should my congressman support sopa?</title>
    <meta name="author" content="Anideo Dev" />
-   <link href='http://fonts.googleapis.com/css?family=Vast+Shadow' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Antic' rel='stylesheet' type='text/css'>
    <link href="/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
    <link href="/css/globals.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -21,13 +21,15 @@
       <div class="span16" id="main">
         <h1>Should My Congressman Support SOPA?</h1>
 
-        <p style="padding-bottom: 20px; font-size: 18px;">
+        <p class="petition">
           Say No to SOPA, sign the <a href="https://www.google.com/landing/takeaction/" target="_blank">Google Petition!</a>
         </p>
         <div id="video-container">
           <div id="video"></div>
         </div>
-        <a href="#" class="btn large primary say">Want another opinion?</a>
+        <div id="button-container">
+          <a href="#" class="btn large primary say">Want another opinion?</a>
+        </div>
         <div class="footer">
           Brought to you by the guys at <a href="http://getdenso.com" target="_blank">Denso</a> (many thanks to the creative genius of <a href="http://www.youtube.com/user/iiAFX" target="_blank">iiAFX on Youtube</a>)
         </div>
@@ -194,6 +196,8 @@
       ]
     });
 
+    setRandomPetitionLink();
+
     function setCurrentNooooo(_nooooos) {
       var random = Math.floor(Math.random()*(_nooooos.length))
       window.currentNooooo = _nooooos[random];
@@ -208,6 +212,17 @@
       jwplayer().seek(window.currentStartingNooooo);
     }
 
+    function setRandomPetitionLink() {
+      var petitions = [
+        'Say No To SOPA, write Congress Now at <a href="http://americancensorship.org" target="_blank">americancensorship.org!</a>',
+        'Say No To SOPA, fax your representative at <a href="http://www.hellofax.com/StopSOPA" target="_blank">HelloFax!</a>',
+        'Tell Congress to Protect the Internet at <a href="https://donate.mozilla.org/page/s/sopa-pipa-petition">Mozilla.org!</a>',
+        'Say No to SOPA, sign the <a href="https://www.google.com/landing/takeaction/" target="_blank">Google Petition!</a>'
+      ];
+
+      $('.petition').html(petitions[Math.floor(Math.random()*(petitions.length))]);
+    }
+
     jwplayer().onReady(function() { playRandomNooooo(window.premier_nooooos) });
 
     jwplayer().onTime(function(e) {
@@ -215,14 +230,18 @@
         jwplayer().pause();
         $('.say').fadeIn();
         $('.footer').fadeIn();
+        setRandomPetitionLink();
       }
     });
 
-    $('.say').click(function() {
+    $('.say').click(function(e) {
       playRandomNooooo(window.nooooos);
 
       $('.say').fadeOut();
       $('.footer').fadeOut();
+
+      e.stopPropagation();
+      return false;
     });
 
   });
